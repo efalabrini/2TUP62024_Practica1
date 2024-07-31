@@ -8,7 +8,7 @@ public class ej1controller : ControllerBase
 {
 
     [HttpGet]
-    public int Get([FromQuery] int a, [FromQuery] int b, [FromQuery] int c)
+    public int Get(int a, int b, int c)
     {
         int prueba = a + b + c;
 
