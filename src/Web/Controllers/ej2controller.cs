@@ -7,14 +7,6 @@ namespace Web.Controllers;
 public class ej2controller : ControllerBase
 {
 
-
-
-
-    public ej2controller()
-    {
-
-    }
-
     [HttpGet]
     public string Get()
     {

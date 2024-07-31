@@ -7,14 +7,6 @@ namespace Web.Controllers;
 public class ej1controller : ControllerBase
 {
 
-
-
-
-    public ej1controller()
-    {
-
-    }
-
     [HttpGet]
     public int Get([FromQuery] int a, [FromQuery] int b, [FromQuery] int c)
     {
