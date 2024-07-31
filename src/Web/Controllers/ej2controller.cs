@@ -8,10 +8,10 @@ public class ej2controller : ControllerBase
 {
 
     [HttpGet]
-    public string Get()
+    public string Get(string nombre, string ciudad)
     {
 
 
-        return "";
+        return $"Hola {nombre}, bienvenido a {ciudad}";
     }
 }
