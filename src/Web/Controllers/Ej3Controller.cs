@@ -1,14 +1,16 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc;
 
-namespace Web;
-
-[ApiController]
-[Route("[controller]")]
-public class Ej3Controller : ControllerBase
+namespace Web.Controllers
 {
-    [HttpGet]
-    public string Get([FromQuery] string name, [FromQuery] int age)
+    [Route("api/[controller]")]
+    [ApiController]
+    public class Ej3Controller : ControllerBase
     {
-        return $"Te llamas {name} y tienes {age} años";
+        [HttpGet]
+        public string Get([FromQuery] string name, [FromQuery] int age)
+        {
+            return $"Te llamas {name} y tienes {age} años";
+        }
     }
 }
