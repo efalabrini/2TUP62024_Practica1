@@ -5,12 +5,12 @@ namespace Web.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class Ej2Controller : ControllerBase
+    public class Ej3Controller : ControllerBase
     {
         [HttpGet]
-        public string Get(string name, string city)
+        public string Get(string name, int age)
         {
-            return $"Hola {name} bienvenido a {city}";
+            return $"Te llamas {name} y tenes {age} años";
         }
     }
 }
