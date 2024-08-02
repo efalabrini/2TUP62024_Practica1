@@ -7,8 +7,8 @@ namespace Web;
 public class Ej1Controller : ControllerBase
 {
     [HttpGet]
-    public int Get(int uno, int dos, int tres)
+    public int Get(int numUno, int numDos, int numTres)
     {
-        return uno + dos + tres;
+        return numUno + numDos + numTres;
     }
 }
