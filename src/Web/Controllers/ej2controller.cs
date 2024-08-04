@@ -4,14 +4,16 @@ namespace Web.Controllers;
 
 [ApiController]
 [Route("[controller]")]
-public class ej2controller : ControllerBase
+public class Ej2controller : ControllerBase
 {
 
     [HttpGet]
-    public string Get(string nombre, string ciudad)
+    public string Get(string nombre, string  ciudad)
     {
 
 
         return $"Hola {nombre}, Bienvenido a {ciudad}";
     }
+
+
 }
