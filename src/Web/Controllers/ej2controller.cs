@@ -4,7 +4,7 @@ namespace Web.Controllers;
 
 [ApiController]
 [Route("[controller]")]
-public class ej2controller : ControllerBase
+public class Ej2controller : ControllerBase
 {
 
     [HttpGet]
