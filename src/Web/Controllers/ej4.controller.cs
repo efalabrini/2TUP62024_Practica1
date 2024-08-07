@@ -14,7 +14,7 @@ public class ej4Controller : ControllerBase
         {
             return number1;
         }
-        else
+        else   
         {
             return number2;
         }
