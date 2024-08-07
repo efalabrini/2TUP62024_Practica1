@@ -2,6 +2,8 @@
 
 namespace Web;
 
+[ApiController]
+[Route("[controller]")]
 public class EJ3Controller:ControllerBase
 {
     [HttpGet]
@@ -9,5 +11,6 @@ public class EJ3Controller:ControllerBase
     {
 
         return $"te llamas {nombre}, y tienes {edad} años";
+
     }
 }
