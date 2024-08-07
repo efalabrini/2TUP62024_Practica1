@@ -3,6 +3,9 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace Web.Controllers;
 
+[ApiController]
+[Route("[controller]")]
+
 public class EJ5Controller:ControllerBase
 {
     [HttpGet]
