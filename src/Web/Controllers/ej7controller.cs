@@ -8,15 +8,20 @@ namespace Web.Controllers
     public class Ej7Controller : ControllerBase
     {
         [HttpGet()]
-        public int Get()
+        public IActionResult Get(int inicio, int fin)
         {
-            var cont = 0;
-
-            for (int i = 0; i <= 100; i++)
+            if (fin - inicio >= 1000)
             {
-                cont = i;
+                return BadRequest("La diferencia es mayor a 1000");
             }
-            return cont;
+
+            var listnum = new List<int>();
+            for (int i = inicio; i <= fin; i++)
+            {
+                listnum.Add(i);
+            }
+
+            return Ok(listnum);
         }
     }
 }
