@@ -1,10 +1,10 @@
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 
 namespace Web.Controllers;
 
 [ApiController]
 [Route("[controller]")]
-public class ej2controller : ControllerBase
+public class EJ2Controller : ControllerBase
 {
 
     [HttpGet]
