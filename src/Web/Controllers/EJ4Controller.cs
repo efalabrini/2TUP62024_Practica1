@@ -4,12 +4,11 @@ namespace Web;
 
 [ApiController]
 [Route("[controller]")]
-
 public class EJ4Controller: ControllerBase
 {
     [HttpGet]
 
-    public int Get(int numero1, int numero2)
+    public string Get(int numero1, int numero2)
     {
         if (numero1 > numero2)
         {
