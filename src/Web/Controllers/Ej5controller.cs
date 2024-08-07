@@ -14,17 +14,17 @@ namespace Web.Controllers
             string diaNormalizado = dia.Trim();
 
             // Verificar si el día ingresado es fin de semana
-            if (string.Equals(diaNormalizado, "sábado", StringComparison.OrdinalIgnoreCase) ||
+            if (string.Equals(diaNormalizado, "sabado", StringComparison.OrdinalIgnoreCase) ||
                 string.Equals(diaNormalizado, "domingo", StringComparison.OrdinalIgnoreCase))
             {
                 return $"{diaNormalizado} es fin de semana.";
             }
             // Verificar si el día ingresado es un día laborable
             else if (string.Equals(diaNormalizado, "lunes", StringComparison.OrdinalIgnoreCase) ||
-                    string.Equals(diaNormalizado, "martes", StringComparison.OrdinalIgnoreCase) ||
-                    string.Equals(diaNormalizado, "miércoles", StringComparison.OrdinalIgnoreCase) ||
-                    string.Equals(diaNormalizado, "jueves", StringComparison.OrdinalIgnoreCase) ||
-                    string.Equals(diaNormalizado, "viernes", StringComparison.OrdinalIgnoreCase))
+                     string.Equals(diaNormalizado, "martes", StringComparison.OrdinalIgnoreCase) ||
+                     string.Equals(diaNormalizado, "miercoles", StringComparison.OrdinalIgnoreCase) ||
+                     string.Equals(diaNormalizado, "jueves", StringComparison.OrdinalIgnoreCase) ||
+                     string.Equals(diaNormalizado, "viernes", StringComparison.OrdinalIgnoreCase))
             {
                 return $"{diaNormalizado} no es fin de semana.";
             }
