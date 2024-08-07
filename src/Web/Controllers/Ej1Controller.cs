@@ -2,13 +2,15 @@
 
 namespace Web;
 
+[Route("api/[controller]")]
 [ApiController]
-[Route("[controller]")]
+
 public class Ej1Controller : ControllerBase
 {
     [HttpGet]
     public int Get(int uno, int dos, int tres)
     {
-        return uno + dos + tres;
+        int suma = uno + dos + tres;
+        return suma;
     }
 }
