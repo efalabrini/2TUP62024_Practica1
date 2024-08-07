@@ -21,10 +21,10 @@ namespace Web.Controllers
             }
             // Verificar si el día ingresado es un día laborable
             else if (string.Equals(diaNormalizado, "lunes", StringComparison.OrdinalIgnoreCase) ||
-                     string.Equals(diaNormalizado, "martes", StringComparison.OrdinalIgnoreCase) ||
-                     string.Equals(diaNormalizado, "miércoles", StringComparison.OrdinalIgnoreCase) ||
-                     string.Equals(diaNormalizado, "jueves", StringComparison.OrdinalIgnoreCase) ||
-                     string.Equals(diaNormalizado, "viernes", StringComparison.OrdinalIgnoreCase))
+                    string.Equals(diaNormalizado, "martes", StringComparison.OrdinalIgnoreCase) ||
+                    string.Equals(diaNormalizado, "miércoles", StringComparison.OrdinalIgnoreCase) ||
+                    string.Equals(diaNormalizado, "jueves", StringComparison.OrdinalIgnoreCase) ||
+                    string.Equals(diaNormalizado, "viernes", StringComparison.OrdinalIgnoreCase))
             {
                 return $"{diaNormalizado} no es fin de semana.";
             }
