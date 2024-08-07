@@ -6,23 +6,23 @@ namespace Web.Controllers;
 public class EJ5Controller:ControllerBase
 {
     [HttpGet]
-    public IActionResult GetDayType([FromQuery] string day)
-    {
-        if (string.IsNullOrWhiteSpace(day))
+        public IActionResult GetDayType([FromQuery] string day)
         {
-            return BadRequest("el nombre del dia no puede estar vacio");
-        }
+            if (string.IsNullOrWhiteSpace(day))
+            {
+                return BadRequest("El nombre del día no puede estar vacío.");
+            }
 
-        day = day.Trim();
+            day = day.Trim();
 
-        if(Enum.TryParse(day,true,out DayOfWeek parsedDay))
-        {
-            bool Isweekend = parsedDay == DayOfWeek.Saturday || parsedDay == DayOfWeek
-            return Ok(Isweekend ? "es fin de semana" : "no es fin de semana");
-        }
-        else
-        {
-            return BadRequest("el nombre del dia ingresado no es valido");
-        }
+            if (Enum.TryParse(day, true, out DayOfWeek parsedDay))
+            {
+                bool isWeekend = parsedDay == DayOfWeek.Saturday || parsedDay == DayOfWeek.Sunday;
+                return Ok(isWeekend ? "Es fin de semana." : "No es fin de semana.");
+            }
+            else
+            {
+                return BadRequest("El nombre del día ingresado no es válido.");
+            }
     }
 }
