@@ -11,11 +11,11 @@ public class Ej4Controller : ControllerBase
     {
         if (numero1 > numero2)
         {
-            return $"El numero {numero1} es mayor que {numero2}";
+            return $"{numero1}";
         }
         else if (numero1 < numero2)
         {
-            return $"El numero {numero1} es menor que {numero2}";
+            return $"{numero2}";
         }
         else
         {
