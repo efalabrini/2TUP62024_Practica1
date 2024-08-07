@@ -1,31 +1,38 @@
-using System;
 using Microsoft.AspNetCore.Mvc;
+using System;
 
-namespace Web.Controllers;
-
-[ApiController]
-[Route("[controller]")]
-
-public class EJ5Controller:ControllerBase
+namespace Web.Controllers
 {
-    [HttpGet]
-        public IActionResult GetDayType([FromQuery] string day)
+    [ApiController]
+    [Route("[controller]")]
+    public class Ej5Controller : ControllerBase
+    {
+        [HttpGet]
+        public string Get(string dia)
         {
-            if (string.IsNullOrWhiteSpace(day))
-            {
-                return BadRequest("El nombre del día no puede estar vacío.");
-            }
+            // Quitar espacios en blanco al inicio y al final y convertir a minúsculas
+            string diaNormalizado = dia.Trim();
 
-            day = day.Trim();
-
-            if (Enum.TryParse(day, true, out DayOfWeek parsedDay))
+            // Verificar si el día ingresado es fin de semana
+            if (string.Equals(diaNormalizado, "sábado", StringComparison.OrdinalIgnoreCase)
+                string.Equals(diaNormalizado, "domingo", StringComparison.OrdinalIgnoreCase))
             {
-                bool isWeekend = parsedDay == DayOfWeek.Saturday || parsedDay == DayOfWeek.Sunday;
-                return Ok(isWeekend ? "Es fin de semana." : "No es fin de semana.");
+                return $"{diaNormalizado} es fin de semana.";
             }
+            // Verificar si el día ingresado es un día laborable
+            else if (string.Equals(diaNormalizado, "lunes", StringComparison.OrdinalIgnoreCase)
+                    string.Equals(diaNormalizado, "martes", StringComparison.OrdinalIgnoreCase)
+                    string.Equals(diaNormalizado, "miércoles", StringComparison.OrdinalIgnoreCase)
+                    string.Equals(diaNormalizado, "jueves", StringComparison.OrdinalIgnoreCase) ||
+                    string.Equals(diaNormalizado, "viernes", StringComparison.OrdinalIgnoreCase))
+            {
+                return $"{diaNormalizado} no es fin de semana.";
+            }
+            // Manejar errores en el input
             else
             {
-                return BadRequest("El nombre del día ingresado no es válido.");
+                return "Error: día ingresado no válido.";
             }
+        }
     }
 }
