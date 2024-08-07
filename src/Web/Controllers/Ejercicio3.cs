@@ -19,9 +19,6 @@ public class Ej3Controller : ControllerBase
         string edad = Console.ReadLine();
 
 
-
-
-    
     return  $"Te llamas {nombre}, y tienes {edad} años.";
 
     }
