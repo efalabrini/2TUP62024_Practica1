@@ -6,7 +6,7 @@ namespace Web;
 [ApiController]
 [Route("[controller]")]
 
-public class Ej8Controller : ControllerBase {
+public class Ej9Controller : ControllerBase {
     [HttpGet]
     public ActionResult Get(int a, int b) {
         if (b - a >= 1000) {
