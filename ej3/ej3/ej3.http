@@ -1,0 +1,6 @@
+@ej3_HostAddress = http://localhost:5273
+
+GET {{ej3_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
