@@ -37,7 +37,7 @@ public class ej10controller : ControllerBase
                 {
                     pairList.Add(i);
                 }
-                if (i % 3 == 0 && i != 0)
+                else if (i != 0)
                 {
                     oddList.Add(i);
                 }
