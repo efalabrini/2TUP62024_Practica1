@@ -19,6 +19,7 @@ public class Ejercicio5 : ControllerBase{
         }else if (day.ToLower().Trim() == "lunes" || day.ToLower().Trim() =="martes" || day.ToLower().Trim() == "miercoles" || day.ToLower().Trim() =="jueves" || day.ToLower().Trim() =="viernes"){
             return Ok("No es fin de semana");
         }else {return StatusCode(400);}
+        
     }
 
     
