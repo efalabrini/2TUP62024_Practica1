@@ -21,7 +21,7 @@ public class Ej4Controller : ControllerBase
         }
         else
         {
-            return new int[] { num1, num2 };
+            return 0;
         }
     }
 }
