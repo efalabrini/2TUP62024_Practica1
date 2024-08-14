@@ -18,4 +18,3 @@ public class Ej3Controller : ControllerBase
         return $"Te llamas {nombre} y tienes {edad} años";
     }
 }
-
