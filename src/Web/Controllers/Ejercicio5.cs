@@ -10,18 +10,17 @@ public class Ej5Controller : ControllerBase
     [HttpGet]
     public ActionResult Get(string day)
     {
-        string minusDay = day.ToLower().Trim();
+        string normalized = day.ToLower().Trim();
         List<string> week = ["lunes","martes","miercoles","jueves","viernes"];
         List<string> weekend = ["sabado","domingo"];
 
-        if (week.Contains(minusDay)) {
+        if (week.Contains(normalized)) {
             return Ok("No es fin de semana");
-        } else if (weekend.Contains(minusDay)) {
+        } else if (weekend.Contains(normalized)) {
             return Ok("Es fin de semana");
         } else {
             return StatusCode(400);
         }
 
-        return StatusCode(500);
     }
 }
