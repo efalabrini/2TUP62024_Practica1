@@ -8,38 +8,39 @@ namespace Web.Controllers
     public class Ej6 : ControllerBase
     {
         [HttpGet]
-        public float Get(float precio, int cantidad, string formaPago, int numTarjeta)
+        public ActionResult Get(float precio, int cantidad, string formaPago, string numTarjeta = "")
         {
             if (precio < 0 || cantidad < 0)
             {
-                throw new Exception("Datos incorrectos");
+                return BadRequest("Datos Incorrectos");
             }
             formaPago = formaPago.ToLower().Trim();
             if (!(String.Equals(formaPago, "tarjeta") || String.Equals(formaPago, "efectivo")))
             {
-                throw new Exception("Dato Incorrecto");
+                return BadRequest("Datos Incorrectos");
             }
             switch (formaPago)
             {
                 case "tarjeta":
                     {
 
-                        if (numTarjeta.ToString().Length != 16)
+                        if (numTarjeta.Length != 16)
                         {
-                            throw new Exception("Cantidad de digitos incorrecta");
+                            return BadRequest("Datos Incorrectos");
                         }
-                        return precio * cantidad * 0.10f;
+                        return Ok(precio * cantidad * 1.10f);
                     }
-                    break;
+
                 case "efectivo":
                     {
-                        return precio * cantidad;
+                        return Ok(precio * cantidad);
                     }
-                    break;
-                default:
-                    break;
+
+                default:return BadRequest("Datos Incorrectos");
+                    
             }
-            return 0;
+            
+            
         }
     }
 }
