@@ -1,17 +1,18 @@
 using Microsoft.AspNetCore.Mvc;
 
-namespace Web.Controllers;
+namespace Web;
 
+[Route("api/[controller]")]
 [ApiController]
-[Route("[controller]")]
-public class ej2controller : ControllerBase
+
+public class Ej2Controller : ControllerBase
 {
 
-    [HttpGet]
-    public string Get(string nombre, string ciudad)
-    {
+[HttpGet]
 
-
-        return $"Hola {nombre}, Bienvenido a {ciudad}";
-    }
+public ActionResult Get(string person, string city) {
+    string msj = $"Hola {person} bienvenido a {city}";
+    return Ok (msj);
 }
+}
+
