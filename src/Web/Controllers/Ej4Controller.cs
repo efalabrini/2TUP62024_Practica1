@@ -1,25 +1,26 @@
-/*4) Pedir dos números al usuario por teclado y decir qué número es el mayor.*/
-
 using Microsoft.AspNetCore.Mvc;
 
-namespace Web.Controllers;
-
-[ApiController]
-[Route("[controller]")]
-
-public class Ej4Controller : ControllerBase
+namespace Web.Controllers
 {
-    [HttpGet]
-    public string Get(int num1, int num2)
+    [ApiController]
+    [Route("[controller]")]
+    public class Ej4Controller : ControllerBase
     {
-        if (num1 > num2) 
+        [HttpGet]
+        public string Get(int num1, int num2)
         {
-            return $"El numero {num1} es mayor a {num2}";
-        }
-        else
-        {
-            return $"El numero {num2} es mayor a {num1}";
+            if (num1 > num2) 
+            {
+                return $"El número {num1} es mayor que {num2}";
+            }
+            else if (num2 > num1)
+            {
+                return $"El número {num2} es mayor que {num1}";
+            }
+            else
+            {
+                return "Los números son iguales";
+            }
         }
     }
 }
-
