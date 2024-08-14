@@ -1,24 +1,20 @@
 using Microsoft.AspNetCore.Mvc;
 
-namespace Web;
+namespace Web.Controllers;
+
+//4) Reciba dos números y retorne el mayor
 
 [ApiController]
 [Route("[controller]")]
-
 public class Ej4Controller : ControllerBase
 {
     [HttpGet]
-
-    public string Get(int numero1, int numero2)
+    public int Get(int  numero_a, int numero_b)
     {
-        if(numero1 > numero2){
-            return $"El mayor número es {numero1}";
-        } 
-        else if (numero2 > numero1){
-            return $"El mayor número es {numero2}";
-        }
-        else{
-            return "Los números son iguales";
+        if(numero_a>numero_b){
+            return numero_a;
+        }else{
+            return numero_b;
         }
     }
 }
