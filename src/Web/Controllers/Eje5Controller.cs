@@ -8,20 +8,20 @@ public class Eje5Controller : ControllerBase
 {
 
     [HttpGet]
-    public string Get(string dia)
-    {
-        string[] dias = ["lunes", "martes", "miercoles", "jueves", "viernes", "sabado", "domingo"];
-        dia = dia.Trim().ToLower();
-        for (int i = 0; i < dias.Length; i++) {
-            if (dias[i] == dia) {
-                if (i < 5) { 
-                    return "El día que ingresó es un día de semana";
-                }
-                else { return "El día que ingresó es un día de fin de semana"; }
-            }
-                    
+    public ActionResult Get(string day){
+        day = day.Trim().ToLower();
+        string[] week = ["lunes", "martes", "miercoles", "jueves", "viernes"];
+        string[] weekend = ["sabado", "domingo"];
+
+        if (week.Contains(day)) {
+            return Ok("Es un día de semana");        
+        }else if(weekend.Contains(day)){
+            return Ok("Es fin de semana");
         }
-        return "No se ha encontrado el día";
+        else{
+            return StatusCode(400);
+        }
+        
     }
             
 }
