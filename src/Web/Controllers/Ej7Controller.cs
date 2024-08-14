@@ -14,6 +14,7 @@ public class Ej7Controller : ControllerBase
     [HttpGet]
     public IActionResult Get(int inicio, int final)
     {
+        //inicializo una lista que es como un array pero que tiene metodos propios y ademas es dinamico :)
         List<int> numeros = new List<int>();
         int diferencia = final - inicio;
 
