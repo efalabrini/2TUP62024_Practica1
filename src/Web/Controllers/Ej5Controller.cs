@@ -1,40 +1,29 @@
-﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc;
 
-namespace Web.Controllers
-{
-    [ApiController]
-    [Route("[controller]")]
-    public class Ej5Controller : ControllerBase
-    {
-        [HttpGet]
-        public IActionResult Get(string dia)
-        {
-            try
-            {
-                dia = dia.Trim().ToLower();
+namespace Web.Controllers;
 
-                if (string.IsNullOrWhiteSpace(dia))
-                {
-                    return BadRequest("El dia no puede estar vacio.");
-                }
 
-                if (dia == "sabado" || dia == "domingo")
-                {
-                    return Ok("Es fin de semana.");
-                }
-                else if (dia == "lunes" || dia == "martes" || dia == "miercoles" || dia == "jueves" || dia == "viernes")
-                {
-                    return Ok("No es fin de semana.");
-                }
-                else
-                {
-                    return BadRequest("Dia no valido.");
-                }
-            }
-            catch (Exception ex)
-            {
-                return StatusCode(500, $"Error interno del servidor: {ex.Message}");
-            }
-        }
+[ApiController]
+[Route("[controller]")]
+
+
+public class Ej5Controller : ControllerBase {
+    [HttpGet]
+    public ActionResult Get(string day) {
+        var week = new List<string> {"lunes", "martes", "miercoles", "jueves", "viernes"};
+        var weekend = new List<string> {"sabado", "domingo"};
+
+        if (week.Contains(day.ToLower().Trim())) 
+            {return Ok("Es un dia de semana");}
+        else if (weekend.Contains(day.ToLower().Trim()))
+            {return Ok("Es fin de semana");}
+        else
+            {return StatusCode(400);}
+
+        return StatusCode(500);
+
+        
     }
+    
 }
+
