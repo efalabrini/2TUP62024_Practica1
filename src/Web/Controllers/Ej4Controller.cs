@@ -1,5 +1,3 @@
-using Microsoft.AspNetCore.Mvc;
-
 namespace Web;
 
 [ApiController]
@@ -22,3 +20,4 @@ public class Ej4Controller : ControllerBase
         }
     }
 }
+

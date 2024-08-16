@@ -1,5 +1,3 @@
-﻿using Microsoft.AspNetCore.Mvc;
-
 namespace Web.Controllers;
 
 [ApiController]
@@ -15,3 +13,4 @@ public class Ej3controller : ControllerBase
         return $"Hola {nombre}, tienes {edad} años";
     }
 }
+>>>>>>> main
