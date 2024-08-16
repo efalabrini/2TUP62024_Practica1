@@ -21,7 +21,6 @@ namespace Web.Controllers
                 {
                     return BadRequest("el numero de la tarjeta debe contener 16 caracteres");
                 }
-                //decimal partialPrice = price
                 return Ok((price * 1.10) * quantity);
             }
             else if(pay.ToLower() == "efectivo")
