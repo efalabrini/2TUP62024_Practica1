@@ -9,7 +9,7 @@ namespace ej3.Controllers
     {
         [HttpGet]
         public string Get(string nombre, int edad){
-            return "Te llamas "+nombre+" y tienes "+edad+"años";
+            return  "Te llamas "+nombre+" y tienes "+edad+"años";
         }
     }
 }
