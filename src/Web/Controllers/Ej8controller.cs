@@ -22,6 +22,6 @@ public class Ej8controller : ControllerBase
             numeros.Add(start);
             start++;
         }
-        return Ok(numeros);
+        return Ok(numeros); 
     }
 }
