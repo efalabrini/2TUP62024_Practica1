@@ -19,6 +19,6 @@ public class LinqEj1Controller : ControllerBase
 
         List<int> result = FilterNumbers(numbers);
 
-        return Ok(result.ToList());
+        return Ok(result);
     }
 }
