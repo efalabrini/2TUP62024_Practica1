@@ -7,6 +7,7 @@ namespace Web.Controllers
     [Route("[controller]")]
     public class Ej3Controller : Controller
     {
+        [HttpGet]
         public string Get(string name, string age) { 
             string message = $"Te llamas {name} y tienes {age} años";
             return message;
