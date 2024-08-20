@@ -2,7 +2,8 @@
 
 namespace Web.Controllers
 {
-    
+    [ApiController]
+    [Route("[controller]")]
     public class Eje7Controller : Controller
     {
         [HttpGet]
@@ -11,13 +12,13 @@ namespace Web.Controllers
             List<int> numStartEnd = [];
             if (numStart > numEnd)
             {
-                BadRequest("El número de inicio no puede ser mas grande que el número de fin");
+               return BadRequest("El número de inicio no puede ser mas grande que el número de fin");
             }
             else 
             {
                 if (numEnd - numStart > 1000)
                 {
-                    BadRequest("La diferencia de los números debe ser menor o igual a mil");
+                    return BadRequest("La diferencia de los números debe ser menor o igual a mil");
                 }
                 else 
                 {
