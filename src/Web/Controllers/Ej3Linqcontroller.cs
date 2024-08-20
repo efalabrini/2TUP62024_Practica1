@@ -5,15 +5,17 @@ namespace Web.Controllers;
 [ApiController]
 [Route("[controller]")]
 
-public class Ej2Linqcontroller : ControllerBase
+public class Ej3Linqcontroller : ControllerBase
 {
     [HttpGet]
+
     public IActionResult Get([FromQuery]List<string> words)
     {
-        var wordQuery = 
+        var wordQuery=
             from word in words
-            where word.Length > 4 
-            select word.ToUpper(); 
+            where word.ToLower().StartsWith("b") && word.ToLower().EndsWith("r")
+            select word;
         return Ok(wordQuery);
+        
     }
 }
