@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 
 
-namespace System.Text.RegularExpressions;
+namespace Web.Controllers;
 
 
 [ApiController]
@@ -9,15 +9,15 @@ namespace System.Text.RegularExpressions;
 
   
   public class Eje6Controller : Controller
-   {
+   {    
+    [HttpGet]
         public ActionResult Payment(float price, int amount, string paymentMethod, string cardNumber)
         {
             paymentMethod = paymentMethod.ToLower().Trim();
-            var rgx = new Regex(@"^[0-16]{16}$");
             if (price < 0 && amount < 0) return BadRequest("No se pueden ingresar valores negativos");
             if (paymentMethod == "tarjeta")
             {
-                if (rgx.IsMatch(cardNumber))
+                if (cardNumber.Length == 16)
                 {
                 var total = price * amount * 1.1;
                 return Ok(total);
@@ -32,10 +32,9 @@ namespace System.Text.RegularExpressions;
             var total = price * amount;
             return Ok(total);
             }
-            else 
-            {
+            
             return BadRequest("Método de pago inexistente");
-            }
+            
 
         }
    }
