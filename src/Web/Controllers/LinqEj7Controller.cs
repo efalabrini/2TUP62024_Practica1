@@ -8,7 +8,7 @@ namespace Web;
 
 [ApiController]
 [Route("[controller]")]
-public class EjLinq7 : ControllerBase
+public class LinqEj7Controller : ControllerBase
 {
     
     public static IList<string> DevolverPalabrasCapitales(string cadena)
