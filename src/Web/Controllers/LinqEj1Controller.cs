@@ -8,7 +8,7 @@ namespace Web;
 
 [ApiController]
 [Route("[controller]")]
-public class EjLinq1: ControllerBase
+public class LinqEj1Controller : ControllerBase
 {
     [HttpGet]
     public ActionResult Get()
