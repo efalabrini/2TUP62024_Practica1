@@ -6,7 +6,7 @@ namespace Web.Controllers
 {
     [ApiController]
     [Route("[controller]")]
-    public class RangoController : ControllerBase
+    public class Ej8Controller : ControllerBase
     {
         [HttpGet]
         public IActionResult Get(int inicio, int fin)
