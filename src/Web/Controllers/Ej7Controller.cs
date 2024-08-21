@@ -1,12 +1,12 @@
 using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
-using System.Linq;
+using System;
 
 namespace Web.Controllers
 {
     [ApiController]
     [Route("[controller]")]
-    public class Ej7Controller : ControllerBase
+    public class RangoController : ControllerBase
     {
         [HttpGet]
         public IActionResult Get(int inicio, int fin)
@@ -17,11 +17,10 @@ namespace Web.Controllers
             }
 
             List<int> numeros = new List<int>();
-            int i = inicio;
-            while (i <= fin)
+
+            for (int i = inicio; i <= fin; i++)
             {
                 numeros.Add(i);
-                i++;
             }
 
             return Ok(numeros);
