@@ -7,7 +7,7 @@ namespace Web.Controllers;
 [ApiController]
 [Route("api/[controller]")]
     
-    public class Ejercicio9 : ControllerBase{
+    public class Ej9controller : ControllerBase{
     
     [HttpGet]
     public IActionResult Get(int inicio, int fin)
