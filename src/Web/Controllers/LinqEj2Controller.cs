@@ -8,7 +8,7 @@ namespace Web;
 
 [ApiController]
 [Route("[controller]")]
-public class EjLinq2 : ControllerBase
+public class LinqEj2Controller : ControllerBase
 {
     [HttpGet]
     public ActionResult Get([FromQuery] List<string> words)
