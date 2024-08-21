@@ -37,7 +37,7 @@ namespace Web.Controllers
                     }
                 }
             }
-            return (Ok(numStartEndEven));
+            return Ok($"Los pares son: {string.Join(", ",numStartEndEven)} y los impares son: {string.Join(", ", numStartEndOdd)}");
         }
     }
 }
