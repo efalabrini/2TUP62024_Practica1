@@ -1,32 +1,32 @@
 using Microsoft.AspNetCore.Mvc;
-using System.Text;
+using System.Collections.Generic;
+using System;
 
 namespace Web.Controllers
 {
     [ApiController]
     [Route("[controller]")]
-    public class PagoController : ControllerBase
+    public class RangoController : ControllerBase
     {
         [HttpGet]
-        public string Get()
+        public IActionResult Get(int inicio, int fin)
         {
-            StringBuilder numeros = new StringBuilder();
-
-            int i = 1;
-
-            while (i <= 100)
+            if (Math.Abs(fin - inicio) >= 1000)
             {
-                numeros.Append(i.ToString());
-
-                if (i < 100)
-                {
-                    numeros.Append(", ");
-                }
-
-                i++;
+                return BadRequest("La diferencia entre inicio y fin debe ser menor a 1000.");
             }
 
-            return numeros.ToString();
+            List<int> numeros = new List<int>();
+
+            int current = inicio;
+
+            while (current <= fin)
+            {
+                numeros.Add(current);
+                current++;
+            }
+
+            return Ok(numeros);
         }
     }
 }
