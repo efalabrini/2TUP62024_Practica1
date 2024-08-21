@@ -1,29 +1,30 @@
 using Microsoft.AspNetCore.Mvc;
-using System;
-using System.Text;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace Web.Controllers
 {
     [ApiController]
     [Route("[controller]")]
-    public class PagoController : ControllerBase
+    public class Ej7Controller : ControllerBase
     {
         [HttpGet]
-        public string Get()
+        public IActionResult Get(int inicio, int fin)
         {
-            StringBuilder numeros = new StringBuilder();
-
-            for (int i = 1; i <= 100; i++)
+            if (Math.Abs(fin - inicio) >= 1000)
             {
-                numeros.Append(i.ToString());
-
-                if (i < 100)
-                {
-                    numeros.Append(", ");
-                }
+                return BadRequest("La diferencia entre inicio y fin debe ser menor a 1000.");
             }
 
-            return numeros.ToString();
+            List<int> numeros = new List<int>();
+            int i = inicio;
+            while (i <= fin)
+            {
+                numeros.Add(i);
+                i++;
+            }
+
+            return Ok(numeros);
         }
     }
 }
