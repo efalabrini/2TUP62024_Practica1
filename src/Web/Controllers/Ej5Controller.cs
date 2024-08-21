@@ -2,6 +2,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace Web.Controllers;
 
+
 //5) Reciba el nombre del día y retorne si es fin de semana o no. 
 //En caso de error, debe retornar un status code del grupo de los 400 si es error del cliente
 // o un status code del grupo de los 500 si es un error interno.
@@ -10,6 +11,7 @@ namespace Web.Controllers;
 
 [ApiController]
 [Route("[controller]")]
+
 
 public class Ej5Controller : Controller
 {
@@ -35,4 +37,3 @@ public class Ej5Controller : Controller
             return StatusCode(400, "Datos incorrectos");
         }
     }
-}
