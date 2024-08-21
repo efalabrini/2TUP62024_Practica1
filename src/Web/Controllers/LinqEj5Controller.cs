@@ -8,7 +8,7 @@ namespace Web;
 
 [ApiController]
 [Route("[controller]")]
-public class EjLinq5 : ControllerBase
+public class LinqEj5Controller : ControllerBase
 {
     [HttpGet]
     public ActionResult Get([FromQuery] List<int> numbers)
