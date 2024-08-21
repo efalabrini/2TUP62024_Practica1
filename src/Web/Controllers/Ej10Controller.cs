@@ -1,6 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
-using System.Text;
+using System;
 
 namespace Web.Controllers
 {
@@ -9,32 +9,38 @@ namespace Web.Controllers
     public class Ej10Controller : ControllerBase
     {
         [HttpGet]
-        public string Get()
+        public IActionResult Get(int inicio, int fin)
         {
-            List<int> numerosPares = new List<int>();
-            List<int> divisiblesEntreTres = new List<int>();
-
-            for (int i = 1; i <= 100; i++)
+            if (Math.Abs(fin - inicio) >= 1000)
             {
-                if (i % 2 == 0)
-                {
-                    numerosPares.Add(i);
-                }
-
-                if (i % 3 == 0)
-                {
-                    divisiblesEntreTres.Add(i);
-                }
+                return BadRequest("La diferencia entre inicio y fin debe ser menor a 1000.");
             }
 
-            string paresString = string.Join(", ", numerosPares);
-            string divisiblesTresString = string.Join(", ", divisiblesEntreTres);
+            List<int> numerosPares = new List<int>();
+            List<int> numerosImpares = new List<int>();
 
-            StringBuilder resultado = new StringBuilder();
-            resultado.AppendLine("Números Pares: " + paresString);
-            resultado.AppendLine("Números Divisibles entre 3: " + divisiblesTresString);
+            int current = inicio;
 
-            return resultado.ToString();
+            while (current <= fin)
+            {
+                if (current % 2 == 0)
+                {
+                    numerosPares.Add(current);
+                }
+                else
+                {
+                    numerosImpares.Add(current);
+                }
+                current++;
+            }
+
+            var resultado = new 
+            {
+                Pares = numerosPares,
+                Impares = numerosImpares
+            };
+
+            return Ok(resultado);
         }
     }
 }
