@@ -13,7 +13,7 @@ public class Ej9Controller : ControllerBase
         if (fin - inicio >= 1000)
         {
             return BadRequest("La diferencia es mayor o igual a 1000");
-        }
+        } 
 
         List<int> numerosPares = new List<int>();
 
