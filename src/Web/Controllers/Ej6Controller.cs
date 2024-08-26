@@ -1,57 +1,41 @@
-﻿using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using System;
 
-using System.Diagnostics.Eventing.Reader;
-
-
 namespace Web.Controllers
-
 {
-    [Route("api/[controller]")]
+    [Route("[controller]")]
     [ApiController]
-
     public class Ej6Controller : ControllerBase
-
     {
         [HttpGet()]
-
-        public String Get([FromQuery] double price, [FromQuery] string MethodPay, [FromQuery] string Card)
-
+        public IActionResult Get([FromQuery] double price, [FromQuery] string MethodPay, [FromQuery] string? Card) // Permitir null en Card
         {
-            string Payment;
-
             if (price <= 0)
             {
-                return "El valor debe ser mayor a 0";
+                return BadRequest("El valor debe ser mayor a 0");
             }
 
             if (MethodPay.Equals("Tarjeta", StringComparison.OrdinalIgnoreCase))
             {
-                if (Card.Length != 16)
-                    return "La tarjeta debe tener 16 digitos en total";
-
+                // Valida el num de tarjeta, solo si se elige este metodo de pago --> if (string.IsNullOrEmpty(Card)
+                if (string.IsNullOrEmpty(Card) || Card.Length != 16) 
+                    return BadRequest("La tarjeta debe tener 16 dígitos en total");
 
                 double FinalPrice = price * 1.10;
-                Payment = $"El precio final al abonar con tarjeta es de {FinalPrice}";
-                return Payment;
+                string Payment = $"El precio final al abonar con tarjeta es de {FinalPrice}";
+                return Ok(Payment);
             }
-
             else if (MethodPay.Equals("Efectivo", StringComparison.OrdinalIgnoreCase))
             {
-                Payment = $"El precio final en efectivo es de {price}";
-                return Payment;
+                // No se requiere número de tarjeta para pagos en efectivo
+                string Payment = $"El precio final en efectivo es de {price}";
+                return Ok(Payment);
             }
             else
             {
-                Payment = "ERROR, debe ser debito o efectivo";
-                return Payment;
+                // Retorna un error si el método de pago no es ni "Tarjeta" ni "Efectivo"
+                return BadRequest("ERROR, el método de pago debe ser 'Tarjeta' o 'Efectivo'");
             }
-
-
-
-
-
         }
     }
 }
