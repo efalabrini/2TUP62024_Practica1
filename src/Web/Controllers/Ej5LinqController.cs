@@ -12,5 +12,7 @@ public class Ej5LinqController : ControllerBase
          var result = numbers.Where(x => x * x> 20).Select(x => $"{x} - {x * x}").ToList();
 
         return Ok(result);
+        
     }
+
 }
