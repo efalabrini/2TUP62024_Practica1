@@ -1,5 +1,7 @@
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using System.Linq;
+
 /* 
 Reciba una lista de números enteros, un valor entero llamado min y un valor entero llamado max, y retorne una lista con los números mayores o iguales que min y menores o iguales que max.
 */
@@ -14,7 +16,7 @@ namespace Web.Controllers
         public IActionResult Get(int minimo, int maximo, [FromQuery] List<int> numbers)
         {
             // filtramos la lista numbers y guardamos en la "lista" / IEnumerable query los que esten dentro del rango que pusimos
-            var query = numbers.Where(num => num >= minimo && num <= maximo); 
+            var query = numbers.Where(num => num >= minimo && num <= maximo);
             // convertimos query en lista
             var queryResult = query.ToList();
 
