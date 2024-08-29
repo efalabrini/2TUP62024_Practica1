@@ -1,4 +1,5 @@
 using Microsoft.AspNetCore.Mvc;
+using System.Linq;
 
 namespace Web.Controllers
 {
@@ -9,12 +10,13 @@ namespace Web.Controllers
         [HttpGet("[action]")]
         public ActionResult Get()
         {
-            List<int> numbers = new List<int>{67,92,153,15, 45, 12, 55, 666};
+            List<int> numbers = new List<int> {67,92,153,15,45,12,55};
 
-            var Query = from num in numbers
-            where (num > 30)
-            select num.ToString();
-            
+            var Query =
+                from num in numbers
+                where num > 30 && num < 100
+                select num;
+
             return Ok(Query);
         }
 
